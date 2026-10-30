@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "AirTransport"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "103702cd-5385-8514-fde5-097273060b8e"
+  }
+}

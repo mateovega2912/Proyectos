@@ -1,0 +1,68 @@
+table _Medidas
+
+	column Columna
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Columna
+
+	measure Ventas = SUM(Ventas[venta_total])
+		formatString: € #,0
+
+	measure Costo = SUM(Ventas[coste_total])
+		formatString: € #,0
+
+	measure 'Margen bruto' = [Ventas] - [Costo]
+		formatString: € #,0
+
+	measure 'Margen %' = DIVIDE([Margen bruto], [Ventas])
+		formatString: 0.0%
+
+	measure Pedidos = DISTINCTCOUNT(Ventas[id_pedido])
+		formatString: #,0
+
+	measure Unidades = SUM(Ventas[unidades])
+		formatString: #,0
+
+	measure 'Ticket medio' = DIVIDE([Ventas], [Pedidos])
+		formatString: € #,0
+
+	measure 'Plazo medio (días)' = AVERAGE(Ventas[Plazo envío (días)])
+		formatString: 0.0
+
+	measure 'Ventas ene-oct' = CALCULATE([Ventas], KEEPFILTERS(Calendario[MesNum] <= 10))
+		formatString: € #,0
+
+	measure 'Ventas ene-oct año anterior' = CALCULATE([Ventas ene-oct], SAMEPERIODLASTYEAR(Calendario[Date]))
+		formatString: € #,0
+
+	measure 'Variación interanual ene-oct' = DIVIDE([Ventas ene-oct] - [Ventas ene-oct año anterior], [Ventas ene-oct año anterior])
+		formatString: 0.0%
+
+	measure 'Saldo pendiente' = SUM(Proveedores[saldo_pendiente])
+		formatString: $ #,0
+
+	measure Proveedores = COUNTROWS(Proveedores)
+		formatString: #,0
+
+	measure 'Proveedores sin compra 12m' = CALCULATE([Proveedores], Proveedores[Meses sin compra] > 12)
+		formatString: #,0
+
+	measure '% saldo sin compra 12m' = DIVIDE(CALCULATE([Saldo pendiente], Proveedores[Meses sin compra] > 12), CALCULATE([Saldo pendiente], ALL(Proveedores)))
+		formatString: 0.0%
+
+	measure Clientes = COUNTROWS(Clientes)
+		formatString: #,0
+
+	measure 'Edad promedio' = AVERAGE(Clientes[edad])
+		formatString: 0.0
+
+	measure 'Clientes con más de 1 pedido' = COUNTROWS(FILTER(VALUES(Ventas[id_cliente]), [Pedidos] > 1))
+		formatString: #,0
+
+	measure '% clientes recurrentes' = DIVIDE([Clientes con más de 1 pedido], DISTINCTCOUNT(Ventas[id_cliente]))
+		formatString: 0.0%
+
+	partition _Medidas = m
+		mode: import
+		source = #table(type table [Columna = text], {})

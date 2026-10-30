@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "AirTransport"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "72b909a5-e58f-4260-e079-8b07e0532336"
+  }
+}

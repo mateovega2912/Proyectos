@@ -1,0 +1,51 @@
+table Proveedores
+
+	column id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: id
+	column proveedor
+		dataType: string
+		summarizeBy: none
+		sourceColumn: proveedor
+	column saldo_pendiente
+		dataType: double
+		formatString: $ #,0
+		summarizeBy: sum
+		sourceColumn: saldo_pendiente
+	column fecha_ultima_compra
+		dataType: dateTime
+		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: fecha_ultima_compra
+	column 'Meses sin compra' = DIVIDE(DATEDIFF(Proveedores[fecha_ultima_compra], CALCULATE(MAX(Proveedores[fecha_ultima_compra]), ALL(Proveedores)), DAY), 30.44)
+		dataType: double
+		formatString: 0.0
+		summarizeBy: none
+	column 'Tramo proveedor' = SWITCH(TRUE(), Proveedores[Meses sin compra] <= 12, "0 a 12 meses", Proveedores[Meses sin compra] <= 36, "13 a 36 meses", "Más de 36 meses")
+		dataType: string
+		summarizeBy: none
+		sortByColumn: 'Tramo proveedor orden'
+	column 'Tramo proveedor orden' = SWITCH(TRUE(), Proveedores[Meses sin compra] <= 12, 1, Proveedores[Meses sin compra] <= 36, 2, 3)
+		dataType: int64
+		formatString: 0
+		isHidden
+		summarizeBy: none
+	column 'Año última compra' = YEAR(Proveedores[fecha_ultima_compra])
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+	column 'Saldo (tramo de 2.000)' = FLOOR(Proveedores[saldo_pendiente], 2000)
+		dataType: int64
+		formatString: #,0
+		summarizeBy: none
+
+	partition Proveedores = m
+		mode: import
+		source =
+				let
+				  Origen = Csv.Document(File.Contents(RutaDatos & "proveedores.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				  Enc = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				  Tipos = Table.TransformColumnTypes(Enc, {{"id", type text}, {"proveedor", type text}, {"saldo_pendiente", type number}, {"fecha_ultima_compra", type date}}, "en-US")
+				in
+				  Tipos

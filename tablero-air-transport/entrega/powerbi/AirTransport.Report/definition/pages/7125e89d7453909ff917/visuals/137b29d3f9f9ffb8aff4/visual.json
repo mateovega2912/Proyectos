@@ -1,0 +1,176 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "137b29d3f9f9ffb8aff4",
+  "position": {
+    "x": 20,
+    "y": 424,
+    "z": 12,
+    "height": 281,
+    "width": 1240,
+    "tabOrder": 12
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Ventas"
+                    }
+                  },
+                  "Property": "id_pedido"
+                }
+              },
+              "queryRef": "Ventas.id_pedido",
+              "nativeQueryRef": "id_pedido"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Ventas"
+                    }
+                  },
+                  "Property": "fecha_pedido"
+                }
+              },
+              "queryRef": "Ventas.fecha_pedido",
+              "nativeQueryRef": "fecha_pedido"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Ventas"
+                    }
+                  },
+                  "Property": "pais"
+                }
+              },
+              "queryRef": "Ventas.pais",
+              "nativeQueryRef": "pais"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Ventas"
+                    }
+                  },
+                  "Property": "zona"
+                }
+              },
+              "queryRef": "Ventas.zona",
+              "nativeQueryRef": "zona"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Ventas"
+                    }
+                  },
+                  "Property": "canal"
+                }
+              },
+              "queryRef": "Ventas.canal",
+              "nativeQueryRef": "canal"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Ventas"
+                    }
+                  },
+                  "Property": "Prioridad del pedido"
+                }
+              },
+              "queryRef": "Ventas.Prioridad del pedido",
+              "nativeQueryRef": "Prioridad del pedido"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Ventas"
+                    }
+                  },
+                  "Property": "Plazo envío (días)"
+                }
+              },
+              "queryRef": "Ventas.Plazo envío (días)",
+              "nativeQueryRef": "Plazo envío (días)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Ventas"
+                    }
+                  },
+                  "Property": "venta_total"
+                }
+              },
+              "queryRef": "Ventas.venta_total",
+              "nativeQueryRef": "venta_total"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Ventas"
+                  }
+                },
+                "Property": "venta_total"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": false
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Pedidos del producto (de mayor a menor importe)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,93 @@
+table Ventas
+
+	column id_pedido
+		dataType: string
+		summarizeBy: none
+		sourceColumn: id_pedido
+	column id_cliente
+		dataType: string
+		summarizeBy: none
+		sourceColumn: id_cliente
+	column zona
+		dataType: string
+		summarizeBy: none
+		sourceColumn: zona
+	column pais
+		dataType: string
+		summarizeBy: none
+		sourceColumn: pais
+	column producto
+		dataType: string
+		summarizeBy: none
+		sourceColumn: producto
+	column canal
+		dataType: string
+		summarizeBy: none
+		sourceColumn: canal
+	column prioridad
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: prioridad
+	column fecha_pedido
+		dataType: dateTime
+		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: fecha_pedido
+	column fecha_envio
+		dataType: dateTime
+		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: fecha_envio
+	column unidades
+		dataType: int64
+		formatString: #,0
+		summarizeBy: sum
+		sourceColumn: unidades
+	column precio_unit
+		dataType: double
+		formatString: #,0.00
+		summarizeBy: none
+		sourceColumn: precio_unit
+	column coste_unit
+		dataType: double
+		formatString: #,0.00
+		summarizeBy: none
+		sourceColumn: coste_unit
+	column venta_total
+		dataType: double
+		formatString: #,0.00
+		summarizeBy: sum
+		sourceColumn: venta_total
+	column coste_total
+		dataType: double
+		formatString: #,0.00
+		summarizeBy: sum
+		sourceColumn: coste_total
+	column 'Plazo envío (días)' = DATEDIFF(Ventas[fecha_pedido], Ventas[fecha_envio], DAY)
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+	column 'Plazo envío (tramo de 5 días)' = FLOOR(Ventas[Plazo envío (días)], 5)
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+	column 'Prioridad del pedido' = Ventas[prioridad]
+		dataType: string
+		summarizeBy: none
+		sortByColumn: 'Prioridad orden'
+	column 'Prioridad orden' = SWITCH(Ventas[prioridad], "Crítica", 1, "Alta", 2, "Media", 3, "Baja", 4, 5)
+		dataType: int64
+		formatString: 0
+		isHidden
+		summarizeBy: none
+
+	partition Ventas = m
+		mode: import
+		source =
+				let
+				  Origen = Csv.Document(File.Contents(RutaDatos & "ventas.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				  Enc = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				  Tipos = Table.TransformColumnTypes(Enc, {{"id_pedido", type text}, {"id_cliente", type text}, {"zona", type text}, {"pais", type text}, {"producto", type text}, {"canal", type text}, {"prioridad", type text}, {"fecha_pedido", type date}, {"fecha_envio", type date}, {"unidades", Int64.Type}, {"precio_unit", type number}, {"coste_unit", type number}, {"venta_total", type number}, {"coste_total", type number}}, "en-US")
+				in
+				  Tipos

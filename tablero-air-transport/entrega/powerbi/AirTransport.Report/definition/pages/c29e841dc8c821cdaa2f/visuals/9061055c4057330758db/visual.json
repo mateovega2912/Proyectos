@@ -1,0 +1,162 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "9061055c4057330758db",
+  "position": {
+    "x": 700,
+    "y": 458,
+    "z": 19,
+    "height": 247,
+    "width": 560,
+    "tabOrder": 19
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Ventas"
+                    }
+                  },
+                  "Property": "id_pedido"
+                }
+              },
+              "queryRef": "Ventas.id_pedido",
+              "nativeQueryRef": "id_pedido"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Ventas"
+                    }
+                  },
+                  "Property": "fecha_pedido"
+                }
+              },
+              "queryRef": "Ventas.fecha_pedido",
+              "nativeQueryRef": "fecha_pedido"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Ventas"
+                    }
+                  },
+                  "Property": "Plazo envío (días)"
+                }
+              },
+              "queryRef": "Ventas.Plazo envío (días)",
+              "nativeQueryRef": "Plazo envío (días)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Ventas"
+                    }
+                  },
+                  "Property": "pais"
+                }
+              },
+              "queryRef": "Ventas.pais",
+              "nativeQueryRef": "pais"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Ventas"
+                    }
+                  },
+                  "Property": "producto"
+                }
+              },
+              "queryRef": "Ventas.producto",
+              "nativeQueryRef": "producto"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Ventas"
+                    }
+                  },
+                  "Property": "Prioridad del pedido"
+                }
+              },
+              "queryRef": "Ventas.Prioridad del pedido",
+              "nativeQueryRef": "Prioridad del pedido"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Ventas"
+                    }
+                  },
+                  "Property": "venta_total"
+                }
+              },
+              "queryRef": "Ventas.venta_total",
+              "nativeQueryRef": "venta_total"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Ventas"
+                  }
+                },
+                "Property": "Plazo envío (días)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": false
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Seguimiento de pedidos (ordenado por plazo de envío)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

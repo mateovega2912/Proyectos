@@ -1,0 +1,88 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "d95e23226baed8f7be28",
+  "position": {
+    "x": 20,
+    "y": 390,
+    "z": 3,
+    "height": 160,
+    "width": 1240,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fuentes"
+                    }
+                  },
+                  "Property": "Fuente"
+                }
+              },
+              "queryRef": "Fuentes.Fuente",
+              "nativeQueryRef": "Fuente"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fuentes"
+                    }
+                  },
+                  "Property": "Filas"
+                }
+              },
+              "queryRef": "Fuentes.Filas",
+              "nativeQueryRef": "Filas"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fuentes"
+                    }
+                  },
+                  "Property": "Período"
+                }
+              },
+              "queryRef": "Fuentes.Período",
+              "nativeQueryRef": "Período"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Fuentes de datos'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

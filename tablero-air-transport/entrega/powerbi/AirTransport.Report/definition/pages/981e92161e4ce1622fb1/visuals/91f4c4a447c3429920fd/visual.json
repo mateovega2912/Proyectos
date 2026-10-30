@@ -1,0 +1,134 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "91f4c4a447c3429920fd",
+  "position": {
+    "x": 20,
+    "y": 410,
+    "z": 11,
+    "height": 295,
+    "width": 760,
+    "tabOrder": 11
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Proveedores"
+                    }
+                  },
+                  "Property": "id"
+                }
+              },
+              "queryRef": "Proveedores.id",
+              "nativeQueryRef": "id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Proveedores"
+                    }
+                  },
+                  "Property": "proveedor"
+                }
+              },
+              "queryRef": "Proveedores.proveedor",
+              "nativeQueryRef": "proveedor"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Proveedores"
+                    }
+                  },
+                  "Property": "saldo_pendiente"
+                }
+              },
+              "queryRef": "Proveedores.saldo_pendiente",
+              "nativeQueryRef": "saldo_pendiente"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Proveedores"
+                    }
+                  },
+                  "Property": "fecha_ultima_compra"
+                }
+              },
+              "queryRef": "Proveedores.fecha_ultima_compra",
+              "nativeQueryRef": "fecha_ultima_compra"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Proveedores"
+                    }
+                  },
+                  "Property": "Meses sin compra"
+                }
+              },
+              "queryRef": "Proveedores.Meses sin compra",
+              "nativeQueryRef": "Meses sin compra"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Proveedores"
+                  }
+                },
+                "Property": "saldo_pendiente"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": false
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Proveedores con mayor saldo (de mayor a menor)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

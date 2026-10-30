@@ -17,7 +17,14 @@ regresion/
 proyecto-integrador/
   abalone_set.csv   + abalone_informe.docx    → estimación de edad de abalones (CRISP-DM completo)
   Orange_final_abalone.ows
+
+tablero-air-transport/
+  entrega/ + tablero/ + datos/             → tablero de gestión (Power BI y web) con presentación, ventas/proveedores/clientes
 ```
+
+## Otros proyectos
+
+**[Tablero Air Transport](tablero-air-transport/)** — análisis de ventas, proveedores y clientes de un caso de consultoría, entregado como presentación (.pptx, versión clara y oscura), proyecto de Power BI y un tablero web interactivo de un solo archivo. Es un trabajo de análisis y visualización de datos (no de modelos predictivos): todas las cifras se verifican contra los datos y los límites de la información están declarados.
 
 ## Resumen de resultados
 

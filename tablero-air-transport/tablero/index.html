@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tablero Air Transport</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header class="cab">
+  <div class="cab-fila">
+    <div class="marca" id="marca">
+      <svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#E84818"/><path d="M6 17 26 7l-6 18-4-7z" fill="#fff"/></svg>
+      <span>AIR TRANSPORT</span>
+    </div>
+    <span class="vivo"><i></i> Datos conectados · edición en vivo</span>
+    <button id="b-tema" class="tema-btn" type="button" aria-pressed="false" title="Cambiar entre modo claro y modo oscuro">☾ Modo oscuro</button>
+  </div>
+  <h1 id="titulo">Tablero Air Transport</h1>
+  <p id="resumen" class="resumen"></p>
+  <nav id="tabs" class="tabs" aria-label="Páginas del tablero"></nav>
+</header>
+
+<div class="barra" id="barra">
+  <div id="filtros" class="filtros"></div>
+  <label class="campo">Medida principal<select id="principal"></select></label>
+  <label class="campo">Agrupar tiempo por<select id="granularidad"></select></label>
+  <div class="acciones">
+    <button id="b-deshacer" type="button" title="Deshacer el último cambio">↶ Deshacer</button>
+    <button id="b-limpiar" type="button" class="naranja">Limpiar filtros</button>
+    <button id="b-actividad" type="button">Actividad <b id="n-actividad">0</b></button>
+    <button id="b-imprimir" type="button" title="Imprime la página o la guarda como PDF">Imprimir / PDF</button>
+    <button id="b-todo" type="button" title="Vuelve el tablero a su estado original">Restablecer todo</button>
+  </div>
+  <div id="chips" class="chips" aria-live="polite"></div>
+</div>
+
+<main id="pagina" class="pagina"></main>
+<footer class="pie">Fuente: ventas.csv, proveedores.csv y clientes.csv de la carpeta datos/. Clic en un gráfico = filtra el resto · clic derecho en un producto = detalle · ✎ = editar el gráfico.</footer>
+
+<aside id="editor" class="editor" hidden></aside>
+<div id="menu" class="menu" hidden></div>
+<section id="actividad" class="actividad" hidden></section>
+
+<script src="vendor/echarts.min.js"></script>
+<script src="datos.js"></script>
+<script src="mapa.js"></script>
+<script src="nucleo.js"></script>
+<script src="paginas.js"></script>
+<script src="presentacion.js"></script>
+<script src="app.js"></script>
+<script src="logo.js"></script>
+<script src="descargas.js"></script>
+</body>
+</html>

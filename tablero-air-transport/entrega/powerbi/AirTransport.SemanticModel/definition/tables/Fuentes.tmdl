@@ -1,0 +1,21 @@
+table Fuentes
+
+	column Fuente
+		dataType: string
+		isNameInferred
+		summarizeBy: none
+		sourceColumn: [Fuente]
+	column Filas
+		dataType: int64
+		isNameInferred
+		summarizeBy: none
+		sourceColumn: [Filas]
+	column Período
+		dataType: string
+		isNameInferred
+		summarizeBy: none
+		sourceColumn: [Período]
+
+	partition Fuentes = calculated
+		mode: import
+		source = DATATABLE("Fuente", STRING, "Filas", INTEGER, "Período", STRING, {{"Ventas", 1000, "enero 2020 a 7 de noviembre de 2022"}, {"Proveedores", 999, "última compra hasta el 4/5/2022"}, {"Clientes", 999, "altas de 2005 a 2021"}})

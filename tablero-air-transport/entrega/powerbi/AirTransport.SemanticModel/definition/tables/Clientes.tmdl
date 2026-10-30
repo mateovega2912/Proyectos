@@ -1,0 +1,45 @@
+table Clientes
+
+	column id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: id
+	column grupo
+		dataType: string
+		summarizeBy: none
+		sourceColumn: grupo
+	column pais
+		dataType: string
+		summarizeBy: none
+		sourceColumn: pais
+	column estado
+		dataType: string
+		summarizeBy: none
+		sourceColumn: estado
+	column edad
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: edad
+	column fecha_alta
+		dataType: dateTime
+		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: fecha_alta
+	column 'Tramo edad' = SWITCH(TRUE(), Clientes[edad] <= 30, "26 a 30", Clientes[edad] <= 35, "31 a 35", Clientes[edad] <= 40, "36 a 40", Clientes[edad] <= 45, "41 a 45", Clientes[edad] <= 50, "46 a 50", "51 a 56")
+		dataType: string
+		summarizeBy: none
+	column 'Año de alta' = YEAR(Clientes[fecha_alta])
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+
+	partition Clientes = m
+		mode: import
+		source =
+				let
+				  Origen = Csv.Document(File.Contents(RutaDatos & "clientes.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				  Enc = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				  Tipos = Table.TransformColumnTypes(Enc, {{"id", type text}, {"grupo", type text}, {"pais", type text}, {"estado", type text}, {"edad", Int64.Type}, {"fecha_alta", type date}}, "en-US")
+				in
+				  Tipos
