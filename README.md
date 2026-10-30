@@ -8,7 +8,7 @@ Acá junto lo que voy haciendo. Cada proyecto es una carpeta autocontenida con s
 
 | Proyecto | Qué resuelve | Tecnologías |
 |---|---|---|
-| [**Tablero Air Transport**](tablero-air-transport/) | Tablero de gestión de ventas, proveedores y clientes en tres niveles de decisión (operativo, táctico y estratégico), con presentación, proyecto de Power BI y un tablero web interactivo | Power BI, DAX, JavaScript (ECharts), Python, PowerPoint |
+| [**Tablero Air Transport**](tablero-air-transport/) · [▶ en vivo](https://mateovega2912.github.io/Proyectos/tablero-air-transport/tablero/Tablero-Air-Transport.html) | Tablero de gestión de ventas, proveedores y clientes en tres niveles de decisión (operativo, táctico y estratégico), con presentación, proyecto de Power BI y un tablero web interactivo | Power BI, DAX, JavaScript (ECharts), Python, PowerPoint |
 | [**Machine Learning — IES 21**](machine-learning-ies21/) | Clasificación y regresión sobre cinco datasets, con auditoría previa de los datos (nulos, duplicados, fugas) y evaluación en un conjunto de test nunca visto | Python, scikit-learn, Orange |
 
 ## Cómo está organizado

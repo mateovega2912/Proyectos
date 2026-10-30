@@ -12,7 +12,7 @@ El trabajo se entrega en tres formatos que comparten las mismas cifras:
 | **Proyecto de Power BI** | [`entrega/powerbi/AirTransport.pbip`](entrega/powerbi/) | 4 páginas visibles + detalle de producto (obtención de detalles) + tooltip, modelo con medidas DAX |
 | **Tablero web** | [`tablero/Tablero-Air-Transport.html`](tablero/Tablero-Air-Transport.html) | Un solo archivo (2 MB), se abre con doble clic en el navegador y no necesita internet |
 
-> GitHub muestra el código del `.html`, no la página: descargalo y abrilo en el navegador.
+> ▶ **[Abrir el tablero en vivo](https://mateovega2912.github.io/Proyectos/tablero-air-transport/tablero/Tablero-Air-Transport.html)** (GitHub Pages). También podés descargar el `.html` y abrirlo sin internet: en GitHub se ve su código, no la página.
 
 ## Capturas
 
