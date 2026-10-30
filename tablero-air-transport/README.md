@@ -1,5 +1,7 @@
 # Tablero Air Transport
 
+[← Todos los proyectos](../README.md)
+
 Tablero de gestión para la dirección de **Air Transport** (caso de consultoría con datos provistos para el curso, no una empresa real): ventas, proveedores y clientes en tres niveles de decisión (operativo, táctico y estratégico), con presentación incluida.
 
 El trabajo se entrega en tres formatos que comparten las mismas cifras:
