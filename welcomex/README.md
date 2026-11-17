@@ -35,6 +35,10 @@ Next.js 16, React 19, TypeScript y Tailwind 4. Datos locales con SQLite; cuentas
 
 Trabajé junto a un asistente de IA (Claude Code): tareas chicas en paralelo, cada una con pruebas y revisión mía.
 
+## Código público
+
+El código completo es privado, pero publiqué un extracto con pruebas: el [buscador de posiciones NCM](https://github.com/mateovega2912/buscador-ncm) (TypeScript, sin dependencias, 10 pruebas automáticas).
+
 ## Límites
 
 - Es una demo: no guarda datos ni permite crear cuentas.
